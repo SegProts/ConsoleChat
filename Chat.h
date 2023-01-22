@@ -11,7 +11,7 @@ class UserLoginUnicExeption : public std::exception
 public:
 	virtual const char* what() const noexcept override
 	{
-		return " [ОШИБКА]: Введенный логин уже занят";
+		return " [РћРЁРР‘РљРђ]: Р’РІРµРґРµРЅРЅС‹Р№ Р»РѕРіРёРЅ СѓР¶Рµ Р·Р°РЅСЏС‚";
 	}
 };
 
@@ -20,52 +20,50 @@ class UserNameUnicExeption : public std::exception
 public:
 	virtual const char* what() const noexcept override
 	{
-		return "[ОШИБКА]: Введенный никнейм уже занят";
+		return "[РћРЁРР‘РљРђ]: Р’РІРµРґРµРЅРЅС‹Р№ РЅРёРєРЅРµР№Рј СѓР¶Рµ Р·Р°РЅСЏС‚";
 	}
 };
 
-class ValidСharactersExeption : public std::exception
+class ValidРЎharactersExeption : public std::exception
 {
 public:
 	virtual const char* what() const noexcept override
 	{
-		return "[ОШИБКА]: Введён недопустимый символ";
+		return "[РћРЁРР‘РљРђ]: Р’РІРµРґС‘РЅ РЅРµРґРѕРїСѓСЃС‚РёРјС‹Р№ СЃРёРјРІРѕР»";
 	}
 };
 
 class Chat
 {
-	bool chatWork_ = 0; //Чат работает
-	std::shared_ptr<User> selectUser_ = nullptr; //Авторизованный на данный момент пользователь
-	bool workLogUser_ = false; //Происходит вход зарегистрированного пользователя
-	bool workRegistUser_ = false; //Происходит регистрация нового пользователя
-	std::vector<User> userList_; //Список всех зарегистрированных пользователей
-	std::vector<Message> messageList_; //Список всех сообщений
+	bool chatWork_ = 0; //Р§Р°С‚ СЂР°Р±РѕС‚Р°РµС‚
+	std::shared_ptr<User> selectUser_ = nullptr; //РђРІС‚РѕСЂРёР·РѕРІР°РЅРЅС‹Р№ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
+	bool workLogUser_ = false; //РџСЂРѕРёСЃС…РѕРґРёС‚ РІС…РѕРґ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	bool workRegistUser_ = false; //РџСЂРѕРёСЃС…РѕРґРёС‚ СЂРµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	std::vector<User> userList_; //РЎРїРёСЃРѕРє РІСЃРµС… Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+	std::vector<Message> messageList_; //РЎРїРёСЃРѕРє РІСЃРµС… СЃРѕРѕР±С‰РµРЅРёР№
 public:
-	std::vector<User>& getUsers(); //Получить всех пользователей
+	std::vector<User>& getUsers(); //РџРѕР»СѓС‡РёС‚СЊ РІСЃРµС… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 	std::vector<Message>& getMessages();
 	std::shared_ptr<User>& getSelectUser();
 
-	//Вернет ссылку на пользователя, если зарегистрирован(иначен nullptr). 
+	//Р’РµСЂРЅРµС‚ СЃСЃС‹Р»РєСѓ РЅР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РµСЃР»Рё Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ(РёРЅР°С‡РµРЅ nullptr). 
 	std::shared_ptr<User> findExistUser(std::string findData, int comandType);
 
-	void showChat(std::shared_ptr<User> user); //Отобразить чат для переданного пользователя
+	//(Р›РѕРіРёРЅ - РґР»СЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё, РЅРёРєРЅРµР№Рј - РґР»СЏ РѕС‚РїСЂР°РІРєРё Рё РїСЂРёРµРјР° СЃРѕРѕР±С‰РµРЅРёР№)
+	void sendMessage(); //РџРѕСЃР»Р°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РѕС‚ selectUser_ РІС‹Р±СЂР°РЅРЅРѕРјСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ
 
-	//(Логин - для авторизации, никнейм - для отправки и приема сообщений)
-	void sendMessage(); //Послать сообщение от selectUser_ выбранному пользователю
-
-	void start(); //Запустить чат
-	void stop(); //Остановить чат
+	void start(); //Р—Р°РїСѓСЃС‚РёС‚СЊ С‡Р°С‚
+	void stop(); //РћСЃС‚Р°РЅРѕРІРёС‚СЊ С‡Р°С‚
 
 	void setSelectUser(User& user);
 
-	void addUser(); //Добавить нового пользователя
-	void changePassUser(); //Поменять пароль текущего авторизованого пользователя
+	void addUser(); //Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	void changePassUser(); //РџРѕРјРµРЅСЏС‚СЊ РїР°СЂРѕР»СЊ С‚РµРєСѓС‰РµРіРѕ Р°РІС‚РѕСЂРёР·РѕРІР°РЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 
-	bool getChatWork(); //Проверить работает ли чат
+	bool getChatWork(); //РџСЂРѕРІРµСЂРёС‚СЊ СЂР°Р±РѕС‚Р°РµС‚ Р»Рё С‡Р°С‚
 	void addItemUserList(User& newUser);
-	void signIn(); //Войти по логину и паролю
-	void showMenuUsers(); //Показать меню Пользователи
-	void showMenuChat(); //Показать меню Чат
-	int cheсkRussData(std::string data); //Проверяет строки на налициче символов с кирилицей
+	void signIn(); //Р’РѕР№С‚Рё РїРѕ Р»РѕРіРёРЅСѓ Рё РїР°СЂРѕР»СЋ
+	void showMenuUsers(); //РџРѕРєР°Р·Р°С‚СЊ РјРµРЅСЋ РџРѕР»СЊР·РѕРІР°С‚РµР»Рё
+	void showMenuChat(); //РџРѕРєР°Р·Р°С‚СЊ РјРµРЅСЋ Р§Р°С‚
+	int cheСЃkRussData(std::string data); //РџСЂРѕРІРµСЂСЏРµС‚ СЃС‚СЂРѕРєРё РЅР° РЅР°Р»РёС†РёС‡Рµ СЃРёРјРІРѕР»РѕРІ СЃ РєРёСЂРёР»РёС†РµР№
 };

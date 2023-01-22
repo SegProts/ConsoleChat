@@ -19,5 +19,5 @@ public:
 	void setReciever(std::string resiever);
 
 	std::string getMessage();
-	void setMessage(std::string ότϋϋτοσ);
+	void setMessage(std::string ΟΟ„Ο‹Ο‹Ο„ΞΏΟƒ);
 };

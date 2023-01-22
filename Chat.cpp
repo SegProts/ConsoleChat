@@ -6,7 +6,7 @@
 
 void Chat::setSelectUser(User& user)
 {
-	//Устанавливаем текущий авторизированный пользователь
+	//РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С‚РµРєСѓС‰РёР№ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°РЅРЅС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ
 	selectUser_ = findExistUser(user.getLogin(), 1);
 }
 
@@ -46,7 +46,7 @@ std::shared_ptr<User> Chat::findExistUser(std::string findData, int comandType)
 	{
 		for (User& item : Chat::getUsers())
 		{
-			if (item.getLogin() == findData) //Совпадает ли полученный логин с логином зарегистрированного пользователя
+			if (item.getLogin() == findData) //РЎРѕРІРїР°РґР°РµС‚ Р»Рё РїРѕР»СѓС‡РµРЅРЅС‹Р№ Р»РѕРіРёРЅ СЃ Р»РѕРіРёРЅРѕРј Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 			{
 				return std::make_shared<User>(item);
 			}
@@ -56,7 +56,7 @@ std::shared_ptr<User> Chat::findExistUser(std::string findData, int comandType)
 	{
 		for (User item : Chat::getUsers())
 		{
-			//Совпадает ли полученный никнейм с никнеймом зарегистрированного пользователя
+			//РЎРѕРІРїР°РґР°РµС‚ Р»Рё РїРѕР»СѓС‡РµРЅРЅС‹Р№ РЅРёРєРЅРµР№Рј СЃ РЅРёРєРЅРµР№РјРѕРј Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 			if (item.getName() == findData) 
 			{ 
 				return std::make_shared<User>(item);
@@ -77,43 +77,43 @@ void Chat::signIn()
 	bool checkLogin = true;
 	bool checkPassword = true;
 
-	std::string enterLogin = ""; //Введенный логин
-	std::string enterPassword = ""; //Введенный пароль
+	std::string enterLogin = ""; //Р’РІРµРґРµРЅРЅС‹Р№ Р»РѕРіРёРЅ
+	std::string enterPassword = ""; //Р’РІРµРґРµРЅРЅС‹Р№ РїР°СЂРѕР»СЊ
 
 	if (userList_.size() > 0)
 	{
 		do
 		{
-			std::cout << std::endl << "---------------------------------------Авторизация пользователя----------------------------------------" << std::endl;
-			std::cout << " [Введите логин:]" << std::endl << std::endl;
+			std::cout << std::endl << "---------------------------------------РђРІС‚РѕСЂРёР·Р°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ----------------------------------------" << std::endl;
+			std::cout << " [Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ:]" << std::endl << std::endl;
 
-			/*---------------------------Ввод логина---------------------------------*/
+			/*---------------------------Р’РІРѕРґ Р»РѕРіРёРЅР°---------------------------------*/
 			int indexSpace = -1;
 			std::cin.ignore();
-			std::getline(std::cin, enterLogin); //Считывание логина с клавиатуры
-			indexSpace = enterLogin.find(' '); //Поиск пробелов в логине(все знаки кроме пробела допустимы в логине)
+			std::getline(std::cin, enterLogin); //РЎС‡РёС‚С‹РІР°РЅРёРµ Р»РѕРіРёРЅР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+			indexSpace = enterLogin.find(' '); //РџРѕРёСЃРє РїСЂРѕР±РµР»РѕРІ РІ Р»РѕРіРёРЅРµ(РІСЃРµ Р·РЅР°РєРё РєСЂРѕРјРµ РїСЂРѕР±РµР»Р° РґРѕРїСѓСЃС‚РёРјС‹ РІ Р»РѕРіРёРЅРµ)
 
 			if (indexSpace == -1)
 			{
-				checkLogin = false; //Логин успешно принят
-				/*-----------------------Ввод пароля--------------------------*/
+				checkLogin = false; //Р›РѕРіРёРЅ СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚
+				/*-----------------------Р’РІРѕРґ РїР°СЂРѕР»СЏ--------------------------*/
 				do
 				{
 					system("cls");
-					std::cout << std::endl << "---------------------------------------Авторизация пользователя----------------------------------------" << std::endl;
-					std::cout << " Логин [" << enterLogin << "]" << std::endl; // "] зарегистрирован" << std::endl;
+					std::cout << std::endl << "---------------------------------------РђРІС‚РѕСЂРёР·Р°С†РёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ----------------------------------------" << std::endl;
+					std::cout << " Р›РѕРіРёРЅ [" << enterLogin << "]" << std::endl; // "] Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ" << std::endl;
 
-					std::cout << std::endl << " [Введите пароль:]" << std::endl << std::endl;
+					std::cout << std::endl << " [Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ:]" << std::endl << std::endl;
 
 					int indexSpace = -1;
-					std::getline(std::cin, enterPassword); //Считывание пароля с клавиатуры
-					indexSpace = enterPassword.find(' '); //Поиск пробелов в пароле
+					std::getline(std::cin, enterPassword); //РЎС‡РёС‚С‹РІР°РЅРёРµ РїР°СЂРѕР»СЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+					indexSpace = enterPassword.find(' '); //РџРѕРёСЃРє РїСЂРѕР±РµР»РѕРІ РІ РїР°СЂРѕР»Рµ
 
 					if (indexSpace == -1)
 					{
 						checkPassword = false;
 
-						//Проверка есть ли введеный пользоветель среди зарегистрированных
+						//РџСЂРѕРІРµСЂРєР° РµСЃС‚СЊ Р»Рё РІРІРµРґРµРЅС‹Р№ РїРѕР»СЊР·РѕРІРµС‚РµР»СЊ СЃСЂРµРґРё Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С…
 						User* enterUser = nullptr;
 
 						for (User& item : getUsers())
@@ -122,21 +122,21 @@ void Chat::signIn()
 							{
 								if (enterPassword == item.getPassword())
 								{
-									setSelectUser(item); //Устанавливаем введенного пользователя как авторирозованного 
+									setSelectUser(item); //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІРІРµРґРµРЅРЅРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РєР°Рє Р°РІС‚РѕСЂРёСЂРѕР·РѕРІР°РЅРЅРѕРіРѕ 
 									system("cls");
-									std::cout << std::endl << " [Пользователь авторизован]" << std::endl;
+									std::cout << std::endl << " [РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ]" << std::endl;
 									break;
 								}
 								else
 								{
 									system("cls");
-									std::cout << std::endl << " [Пользователь не авторизован(пароль - неверный)]" << std::endl;
+									std::cout << std::endl << " [РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ(РїР°СЂРѕР»СЊ - РЅРµРІРµСЂРЅС‹Р№)]" << std::endl;
 								}
 							}
 							else
 							{
 								system("cls");
-								std::cout << std::endl << " [Среди зарегистрированных пользователей нет логина( " << enterLogin << " )]" << std::endl;
+								std::cout << std::endl << " [РЎСЂРµРґРё Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РЅРµС‚ Р»РѕРіРёРЅР°( " << enterLogin << " )]" << std::endl;
 							}
 						}
 					}
@@ -144,9 +144,9 @@ void Chat::signIn()
 					{
 						try
 						{
-							throw ValidСharactersExeption();
+							throw ValidРЎharactersExeption();
 						}
-						catch (ValidСharactersExeption e)
+						catch (ValidРЎharactersExeption e)
 						{
 							system("cls");
 							std::cout << std::endl << " " << e.what() << std::endl;
@@ -160,9 +160,9 @@ void Chat::signIn()
 			{
 				try
 				{
-					throw ValidСharactersExeption();
+					throw ValidРЎharactersExeption();
 				}
-				catch (ValidСharactersExeption e)
+				catch (ValidРЎharactersExeption e)
 				{
 					system("cls");
 					std::cout << std::endl << " " << e.what() << std::endl;
@@ -175,7 +175,7 @@ void Chat::signIn()
 	else
 	{
 		system("cls");
-		std::cout << std::endl << " Список пользователей пуст" << std::endl;
+		std::cout << std::endl << " РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РїСѓСЃС‚" << std::endl;
 	}
 }
 
@@ -186,12 +186,12 @@ void Chat::changePassUser()
 
 	bool checkPassword = true;
 	bool checkNewPassword = true;
-	bool errorEnterPassword = false; //Отображение ошибки неправильного ввода пароля
+	bool errorEnterPassword = false; //РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕС€РёР±РєРё РЅРµРїСЂР°РІРёР»СЊРЅРѕРіРѕ РІРІРѕРґР° РїР°СЂРѕР»СЏ
 
-	std::string enterPassword; //Введенный пароль
-	std::string enterNewPassword; //Введенный новый пароль
+	std::string enterPassword; //Р’РІРµРґРµРЅРЅС‹Р№ РїР°СЂРѕР»СЊ
+	std::string enterNewPassword; //Р’РІРµРґРµРЅРЅС‹Р№ РЅРѕРІС‹Р№ РїР°СЂРѕР»СЊ
 
-	/*-----------------------Ввод пароля--------------------------*/
+	/*-----------------------Р’РІРѕРґ РїР°СЂРѕР»СЏ--------------------------*/
 	do
 	{
 		if (!errorEnterPassword) 
@@ -199,20 +199,20 @@ void Chat::changePassUser()
 			errorEnterPassword = false;
 			system("cls"); 
 		}
-		std::cout << std::endl << "------------------------Смена пароля пользователя-------------------------" << std::endl;
-		std::cout << " Логин [" << getSelectUser()->getLogin() << "]" << std::endl;
-		std::cout << " Нимкнейм [" << getSelectUser()->getName() << "]" << std::endl;
+		std::cout << std::endl << "------------------------РЎРјРµРЅР° РїР°СЂРѕР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ-------------------------" << std::endl;
+		std::cout << " Р›РѕРіРёРЅ [" << getSelectUser()->getLogin() << "]" << std::endl;
+		std::cout << " РќРёРјРєРЅРµР№Рј [" << getSelectUser()->getName() << "]" << std::endl;
 
-		std::cout << std::endl << " [Введите пароль:]" << std::endl << std::endl;
+		std::cout << std::endl << " [Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ:]" << std::endl << std::endl;
 
 		int indexSpace = -1;
-		std::getline(std::cin, enterPassword); //Считывание пароля с клавиатуры
-		indexSpace = enterPassword.find(' '); //Поиск пробелов в пароле
+		std::getline(std::cin, enterPassword); //РЎС‡РёС‚С‹РІР°РЅРёРµ РїР°СЂРѕР»СЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+		indexSpace = enterPassword.find(' '); //РџРѕРёСЃРє РїСЂРѕР±РµР»РѕРІ РІ РїР°СЂРѕР»Рµ
 
-		//Проверка на ввод пустого пароля
+		//РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ РїСѓСЃС‚РѕРіРѕ РїР°СЂРѕР»СЏ
 		if (enterPassword != "")
 		{
-			//Проверка совпадает ли текущий пароль с введеным
+			//РџСЂРѕРІРµСЂРєР° СЃРѕРІРїР°РґР°РµС‚ Р»Рё С‚РµРєСѓС‰РёР№ РїР°СЂРѕР»СЊ СЃ РІРІРµРґРµРЅС‹Рј
 			if (getSelectUser()->getPassword() == enterPassword)
 			{ 
 				checkPassword = false; 
@@ -220,62 +220,62 @@ void Chat::changePassUser()
 			else
 			{
 				system("cls");
-				std::cout << std::endl << " [Неправильно введен пароль]" << std::endl;
+				std::cout << std::endl << " [РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅ РїР°СЂРѕР»СЊ]" << std::endl;
 				errorEnterPassword = true;
 				continue;
 			}
 
-			//Проверка пароля на символы c кирилицей
-			indexSpace = cheсkRussData(enterPassword);
+			//РџСЂРѕРІРµСЂРєР° РїР°СЂРѕР»СЏ РЅР° СЃРёРјРІРѕР»С‹ c РєРёСЂРёР»РёС†РµР№
+			indexSpace = cheСЃkRussData(enterPassword);
 		}
 		else { continue; }
 
 		if (indexSpace == -1)
 		{
-			/*-----------------------Ввод новго пароля--------------------------*/
+			/*-----------------------Р’РІРѕРґ РЅРѕРІРіРѕ РїР°СЂРѕР»СЏ--------------------------*/
 			do
 			{
-				std::cout << std::endl << " [Введите новый пароль:]" << std::endl << std::endl;
+				std::cout << std::endl << " [Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ РїР°СЂРѕР»СЊ:]" << std::endl << std::endl;
 
 				int indexSpace = -1;
-				std::getline(std::cin, enterNewPassword); //Считывание пароля с клавиатуры
-				indexSpace = enterNewPassword.find(' '); //Поиск пробелов в пароле
+				std::getline(std::cin, enterNewPassword); //РЎС‡РёС‚С‹РІР°РЅРёРµ РїР°СЂРѕР»СЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+				indexSpace = enterNewPassword.find(' '); //РџРѕРёСЃРє РїСЂРѕР±РµР»РѕРІ РІ РїР°СЂРѕР»Рµ
 
-				//Проверка на ввод пустого пароля
+				//РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ РїСѓСЃС‚РѕРіРѕ РїР°СЂРѕР»СЏ
 				if (enterNewPassword != "")
 				{
-					//Проверка пароля на символы c кирилицей
-					indexSpace = cheсkRussData(enterNewPassword);
+					//РџСЂРѕРІРµСЂРєР° РїР°СЂРѕР»СЏ РЅР° СЃРёРјРІРѕР»С‹ c РєРёСЂРёР»РёС†РµР№
+					indexSpace = cheСЃkRussData(enterNewPassword);
 				}
 				else { indexSpace = 1; }
 
 				if (indexSpace == -1)
 				{
-					checkPassword = false; //Новый пароль успешно принят
-					//Установка нового пароля
+					checkPassword = false; //РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚
+					//РЈСЃС‚Р°РЅРѕРІРєР° РЅРѕРІРѕРіРѕ РїР°СЂРѕР»СЏ
 
 					for (User& user : userList_)
 					{
 						if (getSelectUser()->getPassword() == enterPassword)
 						{
-							user.setPassword(enterNewPassword); //Установка нового пароля
-							setSelectUser(user); //Выбор текущего пользоателя
+							user.setPassword(enterNewPassword); //РЈСЃС‚Р°РЅРѕРІРєР° РЅРѕРІРѕРіРѕ РїР°СЂРѕР»СЏ
+							setSelectUser(user); //Р’С‹Р±РѕСЂ С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕР°С‚РµР»СЏ
 							break;
 						}
 					}
 					
-					checkNewPassword = false; //Новый пароль установлен
+					checkNewPassword = false; //РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ СѓСЃС‚Р°РЅРѕРІР»РµРЅ
 
 					system("cls");
-					std::cout << std::endl << " [Новый пароль успешно установлен]" << std::endl;
+					std::cout << std::endl << " [РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ СѓСЃРїРµС€РЅРѕ СѓСЃС‚Р°РЅРѕРІР»РµРЅ]" << std::endl;
 				}
 				else
 				{
 					try
 					{
-						throw ValidСharactersExeption();
+						throw ValidРЎharactersExeption();
 					}
-					catch (ValidСharactersExeption e)
+					catch (ValidРЎharactersExeption e)
 					{
 						//system("cls");
 						std::cout << std::endl << " " << e.what() << std::endl;
@@ -289,9 +289,9 @@ void Chat::changePassUser()
 		{
 			try
 			{
-				throw ValidСharactersExeption();
+				throw ValidРЎharactersExeption();
 			}
-			catch (ValidСharactersExeption e)
+			catch (ValidРЎharactersExeption e)
 			{
 				system("cls");
 				std::cout << std::endl << " " << e.what() << std::endl;
@@ -310,30 +310,30 @@ void Chat::addUser()
 	bool checkLogin = true;
 	bool checkPassword = true;
 	bool checkName = true;
-	bool errorInickName = false; //Отображение ошибки исключения при создании уникального никнейма
+	bool errorInickName = false; //РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕС€РёР±РєРё РёСЃРєР»СЋС‡РµРЅРёСЏ РїСЂРё СЃРѕР·РґР°РЅРёРё СѓРЅРёРєР°Р»СЊРЅРѕРіРѕ РЅРёРєРЅРµР№РјР°
 
-	std::string enterLogin; //Введенный логин
-	std::string enterPassword; //Введенный пароль
-	std::string enterName; //Введенный никнейм
+	std::string enterLogin; //Р’РІРµРґРµРЅРЅС‹Р№ Р»РѕРіРёРЅ
+	std::string enterPassword; //Р’РІРµРґРµРЅРЅС‹Р№ РїР°СЂРѕР»СЊ
+	std::string enterName; //Р’РІРµРґРµРЅРЅС‹Р№ РЅРёРєРЅРµР№Рј
 
 	do
 	{
-		std::cout << std::endl << "------------------------Регистрация нового пользователя-------------------------" << std::endl;
-		std::cout << " [Введите логин:]" << std::endl << std::endl;
+		std::cout << std::endl << "------------------------Р РµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ-------------------------" << std::endl;
+		std::cout << " [Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ:]" << std::endl << std::endl;
 
-		/*---------------------------Ввод логина---------------------------------*/
+		/*---------------------------Р’РІРѕРґ Р»РѕРіРёРЅР°---------------------------------*/
 		int indexSpace = -1;
 
-		std::getline(std::cin, enterLogin); //Считывание логина с клавиатуры
-		indexSpace = enterLogin.find(' '); //Поиск пробелов в логине(все знаки кроме пробела допустимы в логине)
+		std::getline(std::cin, enterLogin); //РЎС‡РёС‚С‹РІР°РЅРёРµ Р»РѕРіРёРЅР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+		indexSpace = enterLogin.find(' '); //РџРѕРёСЃРє РїСЂРѕР±РµР»РѕРІ РІ Р»РѕРіРёРЅРµ(РІСЃРµ Р·РЅР°РєРё РєСЂРѕРјРµ РїСЂРѕР±РµР»Р° РґРѕРїСѓСЃС‚РёРјС‹ РІ Р»РѕРіРёРЅРµ)
 
-		//Проверка на ввод пустого логина
+		//РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ РїСѓСЃС‚РѕРіРѕ Р»РѕРіРёРЅР°
 		if (enterLogin != "")
 		{
-			//Проверка логина на символы c кирилицей
-			indexSpace = cheсkRussData(enterLogin);
+			//РџСЂРѕРІРµСЂРєР° Р»РѕРіРёРЅР° РЅР° СЃРёРјРІРѕР»С‹ c РєРёСЂРёР»РёС†РµР№
+			indexSpace = cheСЃkRussData(enterLogin);
 
-			//Проверка логина на уникальность
+			//РџСЂРѕРІРµСЂРєР° Р»РѕРіРёРЅР° РЅР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ
 			if (findExistUser(enterLogin, 1) != nullptr)
 			{
 				try
@@ -356,31 +356,31 @@ void Chat::addUser()
 
 		if (indexSpace == -1)
 		{
-			/*-----------------------Ввод пароля--------------------------*/
+			/*-----------------------Р’РІРѕРґ РїР°СЂРѕР»СЏ--------------------------*/
 			do
 			{
 				system("cls");
-				checkLogin = false; //Логин успешно принят
-				std::cout << std::endl << "------------------------Регистрация нового пользователя-------------------------" << std::endl;
-				std::cout << " Логин [" << enterLogin << "] успешно принят" << std::endl;
+				checkLogin = false; //Р›РѕРіРёРЅ СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚
+				std::cout << std::endl << "------------------------Р РµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ-------------------------" << std::endl;
+				std::cout << " Р›РѕРіРёРЅ [" << enterLogin << "] СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚" << std::endl;
 
-				std::cout << std::endl << " [Введите пароль:]" << std::endl << std::endl;
+				std::cout << std::endl << " [Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ:]" << std::endl << std::endl;
 
 				int indexSpace = -1;
-				std::getline(std::cin, enterPassword); //Считывание пароля с клавиатуры
-				indexSpace = enterPassword.find(' '); //Поиск пробелов в пароле
+				std::getline(std::cin, enterPassword); //РЎС‡РёС‚С‹РІР°РЅРёРµ РїР°СЂРѕР»СЏ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+				indexSpace = enterPassword.find(' '); //РџРѕРёСЃРє РїСЂРѕР±РµР»РѕРІ РІ РїР°СЂРѕР»Рµ
 
-				//Проверка на ввод пустого пароля
+				//РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ РїСѓСЃС‚РѕРіРѕ РїР°СЂРѕР»СЏ
 				if (enterPassword != "")
 				{
-					//Проверка пароля на символы c кирилицей
-					indexSpace = cheсkRussData(enterPassword);
+					//РџСЂРѕРІРµСЂРєР° РїР°СЂРѕР»СЏ РЅР° СЃРёРјРІРѕР»С‹ c РєРёСЂРёР»РёС†РµР№
+					indexSpace = cheСЃkRussData(enterPassword);
 				}
 				else { indexSpace = 1; }
 
 				if (indexSpace == -1)
 				{
-					/*-----------------------Ввод никнейма--------------------------*/
+					/*-----------------------Р’РІРѕРґ РЅРёРєРЅРµР№РјР°--------------------------*/
 					do
 					{
 						if (!errorInickName)
@@ -388,25 +388,25 @@ void Chat::addUser()
 							errorInickName = false;
 							system("cls");
 						}
-						checkPassword = false; //Пароль успешно принят	
+						checkPassword = false; //РџР°СЂРѕР»СЊ СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚	
 
-						std::cout << std::endl << "------------------------Регистрация нового пользователя-------------------------" << std::endl;
-						std::cout << " Логин [" << enterLogin << "] успешно принят" << std::endl;
+						std::cout << std::endl << "------------------------Р РµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ-------------------------" << std::endl;
+						std::cout << " Р›РѕРіРёРЅ [" << enterLogin << "] СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚" << std::endl;
 
-						std::cout << " Пароль [ ******* ] успешно принят" << std::endl;
+						std::cout << " РџР°СЂРѕР»СЊ [ ******* ] СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚" << std::endl;
 
-						std::cout << std::endl << " [Введите никнейм:]" << std::endl << std::endl;
+						std::cout << std::endl << " [Р’РІРµРґРёС‚Рµ РЅРёРєРЅРµР№Рј:]" << std::endl << std::endl;
 
 						int indexSpace = -1;
-						std::getline(std::cin, enterName); //Считывание никнейма с клавиатуры
-						indexSpace = enterName.find(' '); //Поиск пробелов в никнейме(все знаки кроме пробела допустимы в никнейме)
+						std::getline(std::cin, enterName); //РЎС‡РёС‚С‹РІР°РЅРёРµ РЅРёРєРЅРµР№РјР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+						indexSpace = enterName.find(' '); //РџРѕРёСЃРє РїСЂРѕР±РµР»РѕРІ РІ РЅРёРєРЅРµР№РјРµ(РІСЃРµ Р·РЅР°РєРё РєСЂРѕРјРµ РїСЂРѕР±РµР»Р° РґРѕРїСѓСЃС‚РёРјС‹ РІ РЅРёРєРЅРµР№РјРµ)
 
-						//Проверка на ввод пустого пароля
+						//РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ РїСѓСЃС‚РѕРіРѕ РїР°СЂРѕР»СЏ
 						if (enterName != "")
 						{
 							indexSpace = -1;
 
-							//Проверка логина на уникальность
+							//РџСЂРѕРІРµСЂРєР° Р»РѕРіРёРЅР° РЅР° СѓРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ
 							if (findExistUser(enterName, 2) != nullptr)
 							{
 								try
@@ -417,7 +417,7 @@ void Chat::addUser()
 								{
 									system("cls");
 									std::cout << std::endl << " " << e.what() << std::endl;
-									errorInickName = true; //Необходима что сообщение об ошибке не затерлось при прогрузке меню
+									errorInickName = true; //РќРµРѕР±С…РѕРґРёРјР° С‡С‚Рѕ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ РЅРµ Р·Р°С‚РµСЂР»РѕСЃСЊ РїСЂРё РїСЂРѕРіСЂСѓР·РєРµ РјРµРЅСЋ
 									continue;
 								}
 							}
@@ -429,9 +429,9 @@ void Chat::addUser()
 						{
 							try
 							{
-								throw ValidСharactersExeption();
+								throw ValidРЎharactersExeption();
 							}
-							catch (ValidСharactersExeption e)
+							catch (ValidРЎharactersExeption e)
 							{
 								system("cls");
 								std::cout << std::endl << " " << e.what() << std::endl;
@@ -445,9 +445,9 @@ void Chat::addUser()
 				{
 					try
 					{
-						throw ValidСharactersExeption();
+						throw ValidРЎharactersExeption();
 					}
-					catch (ValidСharactersExeption e)
+					catch (ValidРЎharactersExeption e)
 					{
 						system("cls");
 						std::cout << std::endl << " " << e.what() << std::endl;
@@ -461,9 +461,9 @@ void Chat::addUser()
 		{
 			try
 			{
-				throw ValidСharactersExeption();
+				throw ValidРЎharactersExeption();
 			}
-			catch (ValidСharactersExeption e)
+			catch (ValidРЎharactersExeption e)
 			{
 				system("cls");
 				std::cout << std::endl << " " << e.what() << std::endl;
@@ -472,19 +472,19 @@ void Chat::addUser()
 		}
 
 		system("cls");
-		std::cout << std::endl << "------------------------Регистрация нового пользователя-------------------------" << std::endl;
+		std::cout << std::endl << "------------------------Р РµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ-------------------------" << std::endl;
 
-		std::cout << "  Новый пользователь был успешно зарегистрирован" << std::endl;
-		std::cout << "  Логин [" << enterLogin << "] успешно принят" << std::endl;
-		std::cout << "  Пароль [ ******* ] успешно принят" << std::endl;
-		std::cout << "  Никнейм [" << enterName;
-		std::cout << "] успешно принят" << std::endl;
+		std::cout << "  РќРѕРІС‹Р№ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ Р±С‹Р» СѓСЃРїРµС€РЅРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ" << std::endl;
+		std::cout << "  Р›РѕРіРёРЅ [" << enterLogin << "] СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚" << std::endl;
+		std::cout << "  РџР°СЂРѕР»СЊ [ ******* ] СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚" << std::endl;
+		std::cout << "  РќРёРєРЅРµР№Рј [" << enterName;
+		std::cout << "] СѓСЃРїРµС€РЅРѕ РїСЂРёРЅСЏС‚" << std::endl;
 
 		std::cout << "-------------------------------------------------------------------------------" << std::endl;
 	}
 	while (checkLogin);
 
-	//Создание пользователя и добавления его в общий список пользователей
+	//РЎРѕР·РґР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рё РґРѕР±Р°РІР»РµРЅРёСЏ РµРіРѕ РІ РѕР±С‰РёР№ СЃРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 	userList_.push_back(User(enterLogin, enterPassword, enterName));
 }
 
@@ -497,16 +497,16 @@ void Chat::showMenuUsers()
 	{
 		if (getSelectUser() != nullptr)
 		{
-			std::cout << std::endl << "--------------------------------------------------ЧАТ( ";
+			std::cout << std::endl << "--------------------------------------------------Р§РђРў( ";
 			std::cout << getSelectUser()->getName();
 			std::cout << " )--------------------------------------------------" << std::endl;
 		}
 		else
 		{
-			std::cout << std::endl << "--------------------------------------------------ЧАТ--------------------------------------------------" << std::endl;
+			std::cout << std::endl << "--------------------------------------------------Р§РђРў--------------------------------------------------" << std::endl;
 		}
 
-		std::cout << " 1: [Регистрация] " << " 2: [Смена пароля] " << " 3: [Список пользователей] " << " 0: [Назад] " << std::endl;
+		std::cout << " 1: [Р РµРіРёСЃС‚СЂР°С†РёСЏ] " << " 2: [РЎРјРµРЅР° РїР°СЂРѕР»СЏ] " << " 3: [РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№] " << " 0: [РќР°Р·Р°Рґ] " << std::endl;
 		std::cout << "-------------------------------------------------------------------------------------------------------" << std::endl;
 
 		std::string enterComand;
@@ -527,25 +527,25 @@ void Chat::showMenuUsers()
 		{
 		case 1:
 			system("cls");
-			addUser(); //Добавить пользователя
+			addUser(); //Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 
 			break;
 		case 2:
 			system("cls");
-			//Смена пароля текущего пользователя
+			//РЎРјРµРЅР° РїР°СЂРѕР»СЏ С‚РµРєСѓС‰РµРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 			changePassUser();
 
 			break;
 		case 3:
 			system("cls");
 
-			//Вывод списка всех пользователей
+			//Р’С‹РІРѕРґ СЃРїРёСЃРєР° РІСЃРµС… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 			if (getUsers().size() > 0)
 			{
-				std::cout << std::endl << "---------------------------------Список зарегистрированных пользователей:------------------------------" << std::endl;
+				std::cout << std::endl << "---------------------------------РЎРїРёСЃРѕРє Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№:------------------------------" << std::endl;
 				for (User& item : getUsers())
 				{
-					std::cout << " Логин: " << item.getLogin() << " - [Никнейм: " << item.getName() << "]" << std::endl;
+					std::cout << " Р›РѕРіРёРЅ: " << item.getLogin() << " - [РќРёРєРЅРµР№Рј: " << item.getName() << "]" << std::endl;
 				}
 				std::cout << "-------------------------------------------------------------------------------------------------------" << std::endl;
 			}
@@ -558,35 +558,15 @@ void Chat::showMenuUsers()
 			break;
 		case -1:
 			system("cls");
-			std::cout << std::endl << " [Неправильно введена команда]" << std::endl;
+			std::cout << std::endl << " [РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅР° РєРѕРјР°РЅРґР°]" << std::endl;
 
 			break;
 		default:
 			system("cls");
-			std::cout << std::endl << " [Неправильно введена команда]" << std::endl;
+			std::cout << std::endl << " [РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅР° РєРѕРјР°РЅРґР°]" << std::endl;
 		}
 	}
 	while (workRegistUser_);
-}
-
-void Chat::showChat(std::shared_ptr<User> user)
-{
-	//Вывод списка всех пользователей
-	if (getMessages().size() > 0)
-	{
-		std::cout << std::endl << "---------------------------------Сообщения для пользователя "; 
-		std::cout << selectUser_->getName();
-		std::cout << ":------------------------------" << std::endl;
-				
-		for (Message& item : getMessages())
-		{								
-			if (user->getName() == item.getReciever()) //Поиск путем сравнения никнеймов переданного пользователя и 
-			{
-				std::cout << " [" << item.getReciever() << "]: " << item.getMessage() << std::endl;
-			}
-		}
-		std::cout << "-------------------------------------------------------------------------------------------------------" << std::endl;
-	}
 }
 
 void Chat::sendMessage()
@@ -596,40 +576,40 @@ void Chat::sendMessage()
 
 	bool checkName = true;
 	bool checkMessage = true;
-	int errorFlag = -1; //-1 - нет ошибок, 1 - возникла ошибка
+	int errorFlag = -1; //-1 - РЅРµС‚ РѕС€РёР±РѕРє, 1 - РІРѕР·РЅРёРєР»Р° РѕС€РёР±РєР°
 
-	std::string enterName; //Введенный никнейм
-	std::string enterMessage; //Введенное сообщение
+	std::string enterName; //Р’РІРµРґРµРЅРЅС‹Р№ РЅРёРєРЅРµР№Рј
+	std::string enterMessage; //Р’РІРµРґРµРЅРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ
 
 	do
 	{
 		system("cls");
-		std::cout << std::endl << "------------------------Отправка сообщения-------------------------" << std::endl;
-		std::cout << " [Введите никнейм( All/Все - для отправки всем )]:" << std::endl << std::endl;
+		std::cout << std::endl << "------------------------РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ-------------------------" << std::endl;
+		std::cout << " [Р’РІРµРґРёС‚Рµ РЅРёРєРЅРµР№Рј( All/Р’СЃРµ - РґР»СЏ РѕС‚РїСЂР°РІРєРё РІСЃРµРј )]:" << std::endl << std::endl;
 
-		/*---------------------------Ввод никнейма---------------------------------*/
-		std::getline(std::cin, enterName); //Считывание логина с клавиатуры
+		/*---------------------------Р’РІРѕРґ РЅРёРєРЅРµР№РјР°---------------------------------*/
+		std::getline(std::cin, enterName); //РЎС‡РёС‚С‹РІР°РЅРёРµ Р»РѕРіРёРЅР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 
-		//Проверка на ввод пустого логина
+		//РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ РїСѓСЃС‚РѕРіРѕ Р»РѕРіРёРЅР°
 		if (enterName != "") { errorFlag = -1; }
 		else { errorFlag = 1; }
 
 		if (errorFlag == -1)
 		{
-			/*-----------------------Ввод сообщения--------------------------*/
+			/*-----------------------Р’РІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ--------------------------*/
 			do
 			{
 				system("cls");
-				checkName = false; //Пользователь с таким ником есть среди зарегистрироваших, поэтому останавливаем ввод
-				std::cout << std::endl << "------------------------Отправка сообщения-------------------------" << std::endl;
-				std::cout << " Получатель [" << enterName << "]:" << std::endl;
+				checkName = false; //РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј РЅРёРєРѕРј РµСЃС‚СЊ СЃСЂРµРґРё Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С€РёС…, РїРѕСЌС‚РѕРјСѓ РѕСЃС‚Р°РЅР°РІР»РёРІР°РµРј РІРІРѕРґ
+				std::cout << std::endl << "------------------------РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ-------------------------" << std::endl;
+				std::cout << " РџРѕР»СѓС‡Р°С‚РµР»СЊ [" << enterName << "]:" << std::endl;
 
-				std::cout << std::endl << " [Введите сообщение:]" << std::endl << std::endl;
+				std::cout << std::endl << " [Р’РІРµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ:]" << std::endl << std::endl;
 
-				errorFlag = -1; //Сбрасываем флаг ошибки
-				std::getline(std::cin, enterMessage); //Считывание сообщение с клавиатуры
+				errorFlag = -1; //РЎР±СЂР°СЃС‹РІР°РµРј С„Р»Р°Рі РѕС€РёР±РєРё
+				std::getline(std::cin, enterMessage); //РЎС‡РёС‚С‹РІР°РЅРёРµ СЃРѕРѕР±С‰РµРЅРёРµ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 
-				//Проверка на ввод пустого сообщения
+				//РџСЂРѕРІРµСЂРєР° РЅР° РІРІРѕРґ РїСѓСЃС‚РѕРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ
 				if (enterMessage != "")
 				{
 					errorFlag = -1;
@@ -641,15 +621,15 @@ void Chat::sendMessage()
 
 				if (errorFlag == -1)
 				{
-					checkMessage = false; //Пользователь с введённым ником зарегистрирован	
+					checkMessage = false; //РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ РІРІРµРґС‘РЅРЅС‹Рј РЅРёРєРѕРј Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ	
 				}
 				else
 				{
 					try
 					{
-						throw ValidСharactersExeption();
+						throw ValidРЎharactersExeption();
 					}
-					catch (ValidСharactersExeption e)
+					catch (ValidРЎharactersExeption e)
 					{
 						system("cls");
 						std::cout << std::endl << " " << e.what() << std::endl;
@@ -663,9 +643,9 @@ void Chat::sendMessage()
 		{
 			try
 			{
-				throw ValidСharactersExeption();
+				throw ValidРЎharactersExeption();
 			}
-			catch (ValidСharactersExeption e)
+			catch (ValidРЎharactersExeption e)
 			{
 				system("cls");
 				std::cout << std::endl << " " << e.what() << std::endl;
@@ -674,16 +654,16 @@ void Chat::sendMessage()
 		}
 
 		system("cls");
-		std::cout << std::endl << "------------------------Отправка сообщения-------------------------" << std::endl;
-		std::cout << " [ Сообщение успешно отправлено ]" << std::endl;
-		std::cout << " [ Получатель ] " << enterName << std::endl;
-		std::cout << " [ Сообщение ] " << enterMessage << std::endl;
+		std::cout << std::endl << "------------------------РћС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ-------------------------" << std::endl;
+		std::cout << " [ РЎРѕРѕР±С‰РµРЅРёРµ СѓСЃРїРµС€РЅРѕ РѕС‚РїСЂР°РІР»РµРЅРѕ ]" << std::endl;
+		std::cout << " [ РџРѕР»СѓС‡Р°С‚РµР»СЊ ] " << enterName << std::endl;
+		std::cout << " [ РЎРѕРѕР±С‰РµРЅРёРµ ] " << enterMessage << std::endl;
 
 		std::cout << "-------------------------------------------------------------------------------" << std::endl;
 	}
 	while (checkName);
 
-	//Создание сообщения и добавления его в общий список сообщений
+	//РЎРѕР·РґР°РЅРёРµ СЃРѕРѕР±С‰РµРЅРёСЏ Рё РґРѕР±Р°РІР»РµРЅРёСЏ РµРіРѕ РІ РѕР±С‰РёР№ СЃРїРёСЃРѕРє СЃРѕРѕР±С‰РµРЅРёР№
 	messageList_.push_back(Message(getSelectUser()->getName(), enterName, enterMessage));
 }
 
@@ -696,16 +676,16 @@ void Chat::showMenuChat()
 	{
 		if (getSelectUser() != nullptr)
 		{
-			std::cout << std::endl << "---------------------------------------ЧАТ( Пользователь: ";
+			std::cout << std::endl << "---------------------------------------Р§РђРў( РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ: ";
 			std::cout << getSelectUser()->getName();
 			std::cout << " )----------------------------------------" << std::endl;
 		}
 		else
 		{
-			std::cout << std::endl << "--------------------------------------------------ЧАТ--------------------------------------------------" << std::endl;
+			std::cout << std::endl << "--------------------------------------------------Р§РђРў--------------------------------------------------" << std::endl;
 		}
 
-		std::cout << " 1: [Отправить]" << "		2: [Прочитать] " << "		0: [Назад] " << std::endl;
+		std::cout << " 1: [РћС‚РїСЂР°РІРёС‚СЊ]" << "		2: [РџСЂРѕС‡РёС‚Р°С‚СЊ] " << "		0: [РќР°Р·Р°Рґ] " << std::endl;
 		std::cout << "-------------------------------------------------------------------------------------------------------" << std::endl;
 
 		std::string enterComand;
@@ -731,18 +711,18 @@ void Chat::showMenuChat()
 				std::string reciver = "";
 				std::string message = "";
 
-				//(Логин - для авторизации, никнейм - для отправки и приема сообщений)
-				//Послать сообщение от selectUser_ пользователю с ником reciver
-				sendMessage(); //Отправить сообщение
+				//(Р›РѕРіРёРЅ - РґР»СЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё, РЅРёРєРЅРµР№Рј - РґР»СЏ РѕС‚РїСЂР°РІРєРё Рё РїСЂРёРµРјР° СЃРѕРѕР±С‰РµРЅРёР№)
+				//РџРѕСЃР»Р°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РѕС‚ selectUser_ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ СЃ РЅРёРєРѕРј reciver
+				sendMessage(); //РћС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ
 			}
 
 			break;
 		case 2:
 			system("cls");
 
-			std::cout << " Список сообщений для (" << getSelectUser()->getName() << "):" << std::endl;
+			std::cout << " РЎРїРёСЃРѕРє СЃРѕРѕР±С‰РµРЅРёР№ РґР»СЏ (" << getSelectUser()->getName() << "):" << std::endl;
 
-			//Вывод списка всех сообщений для пользователя
+			//Р’С‹РІРѕРґ СЃРїРёСЃРєР° РІСЃРµС… СЃРѕРѕР±С‰РµРЅРёР№ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 			if (getMessages().size() > 0)
 			{
 				int countMessage = 0;
@@ -750,12 +730,12 @@ void Chat::showMenuChat()
 				{
 					for (Message& message : getMessages())
 					{
-						//Сообщение можно отправить отдельному пользователю или всем(указав Все или All при вводе никнейма отправителя)
-						if ((message.getReciever() == getSelectUser()->getName()) || (message.getReciever() == "Все") || (message.getReciever() == "All"))
+						//РЎРѕРѕР±С‰РµРЅРёРµ РјРѕР¶РЅРѕ РѕС‚РїСЂР°РІРёС‚СЊ РѕС‚РґРµР»СЊРЅРѕРјСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ РёР»Рё РІСЃРµРј(СѓРєР°Р·Р°РІ Р’СЃРµ РёР»Рё All РїСЂРё РІРІРѕРґРµ РЅРёРєРЅРµР№РјР° РѕС‚РїСЂР°РІРёС‚РµР»СЏ)
+						if ((message.getReciever() == getSelectUser()->getName()) || (message.getReciever() == "Р’СЃРµ") || (message.getReciever() == "All"))
 						{
 							if (user.getName() == message.getSender())
 							{
-								std::cout << " [ Отправитель ] " << message.getSender() << " [ Сообщение ] " << message.getMessage() << std::endl;
+								std::cout << " [ РћС‚РїСЂР°РІРёС‚РµР»СЊ ] " << message.getSender() << " [ РЎРѕРѕР±С‰РµРЅРёРµ ] " << message.getMessage() << std::endl;
 								countMessage++;
 							}
 						}
@@ -764,12 +744,12 @@ void Chat::showMenuChat()
 					std::cout << std::endl;
 				}
 
-				std::cout << " [Количество сообщений] :" << countMessage << std::endl;
+				std::cout << " [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕРѕР±С‰РµРЅРёР№] :" << countMessage << std::endl;
 				std::cout << "-------------------------------------------------------------------------------------------------------" << std::endl;
 			}
 			else
 			{
-				std::cout << " [Количество сообщений] : 0" << std::endl;
+				std::cout << " [РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕРѕР±С‰РµРЅРёР№] : 0" << std::endl;
 			}
 
 			break;
@@ -780,26 +760,26 @@ void Chat::showMenuChat()
 			break;
 		case -1:
 			system("cls");
-			std::cout << std::endl << " [Неправильно введена команда]" << std::endl;
+			std::cout << std::endl << " [РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅР° РєРѕРјР°РЅРґР°]" << std::endl;
 
 			break;
 		default:
 			system("cls");
-			std::cout << std::endl << " [Неправильно введена команда]" << std::endl;
+			std::cout << std::endl << " [РќРµРїСЂР°РІРёР»СЊРЅРѕ РІРІРµРґРµРЅР° РєРѕРјР°РЅРґР°]" << std::endl;
 		}
 	}
 	while (workRegistUser_);
 }
 
-int Chat::cheсkRussData(std::string data)
+int Chat::cheСЃkRussData(std::string data)
 {
-	//Проверка пароля на символы c кирилицей
+	//РџСЂРѕРІРµСЂРєР° РїР°СЂРѕР»СЏ РЅР° СЃРёРјРІРѕР»С‹ c РєРёСЂРёР»РёС†РµР№
 	for (char& ch : data)
 	{
-		if ((ch >= 'А' && ch <= 'Я') || (ch >= 'а' && ch <= 'я'))
+		if ((ch >= 'Рђ' && ch <= 'РЇ') || (ch >= 'Р°' && ch <= 'СЏ'))
 		{
-			return 1; //Вернется это значение если найден хоть один символ с кирилицей
+			return 1; //Р’РµСЂРЅРµС‚СЃСЏ СЌС‚Рѕ Р·РЅР°С‡РµРЅРёРµ РµСЃР»Рё РЅР°Р№РґРµРЅ С…РѕС‚СЊ РѕРґРёРЅ СЃРёРјРІРѕР» СЃ РєРёСЂРёР»РёС†РµР№
 		}
 	}
-	return -1; //Символов с кирилицей нету
+	return -1; //РЎРёРјРІРѕР»РѕРІ СЃ РєРёСЂРёР»РёС†РµР№ РЅРµС‚Сѓ
 }

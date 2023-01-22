@@ -1,2 +1,11 @@
-﻿  ConsoleChat.cpp
+﻿  Chat.cpp
+C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\Chat.cpp(94,37): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\Chat.cpp(110,42): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\Chat.cpp(210,39): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\Chat.cpp(242,44): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\Chat.cpp(328,36): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\Chat.cpp(371,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\Chat.cpp(402,39): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  ConsoleChat.cpp
+  Generating Code...
   ConsoleChat.vcxproj -> C:\Users\PC\Documents\VISUAL_STUDIO_PROJECTS\ConsoleChat\x64\Debug\ConsoleChat.exe
